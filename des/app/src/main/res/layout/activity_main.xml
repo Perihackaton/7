@@ -56,7 +56,8 @@
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="400px"
-            tools:context="com.example.android.materialdesigncodelab" />
+            tools:context="com.example.android.materialdesigncodelab"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 
 
