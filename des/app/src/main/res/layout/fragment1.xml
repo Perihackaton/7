@@ -48,6 +48,18 @@
                 android:layout_width="230dp"
                 android:background="@drawable/rectangle_rounded_some"
                 android:layout_height="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="МУЗЕИ"
+                android:id="@+id/textView"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="20sp" />
         </RelativeLayout>
 
 
@@ -87,7 +99,58 @@
                 android:layout_width="250dp"
                 android:background="@drawable/rectangle_rounded_two"
                 android:layout_height="40dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="ИЗВЕСТНЫЕ ЛИЧНОСТИ"
+                android:id="@+id/textView1"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="20sp" />
         </RelativeLayout>
 
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="#09e3d1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Популярный маршрут"
+            android:id="@+id/textView2"
+            android:textColor="#ffffff"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="СМОТРОВАЯ ПЛОЩАДКА ТАРКИ ТАУ"
+            android:id="@+id/textView3"
+            android:layout_marginTop="12dp"
+            android:textColor="#455a64"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="1 км"
+            android:id="@+id/textView4"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
     </LinearLayout>
 </LinearLayout>
