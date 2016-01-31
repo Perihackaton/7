@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -23,12 +24,15 @@ import okhttp3.Response;
  */
 public class RequestWether {
     private String line;
+    private ArrayList<HashMap<String, Object>> result;
+
     // запрашиваем погоду с сервера
 
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
 
     OkHttpClient client = new OkHttpClient();
+    private AsyncTask<String, Void, ArrayList<HashMap<String, Object>>> Wether;
 
 
     // code request code here
@@ -41,13 +45,22 @@ public class RequestWether {
         return response.body().string();
     }
 
-    public  void test () throws IOException {
+    public  ArrayList<HashMap<String, Object>> test () throws IOException {
 
 
-        new RequestWeath().execute("http://vitoelexir.ru/android/weather.php");
+       Wether =   new RequestWeath();
+       Wether.execute("http://vitoelexir.ru/android/weather.php");
+        try {
+            result = Wether.get();
+        //    System.out.println(result.get(0).get("temperature").toString());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
 
-
+return result;
     }
 
 
@@ -56,12 +69,12 @@ public class RequestWether {
 
     // запрашиваем погоду с сервера
 
-    class RequestWeath extends AsyncTask<String, String, String> {
+    class RequestWeath extends AsyncTask<String, Void, ArrayList<HashMap<String, Object>>> {
 
         private final String Tag = "frag";
 
         @Override
-        protected String doInBackground(String... params) {
+        protected ArrayList<HashMap<String, Object>> doInBackground(String... params) {
 
 
 
@@ -77,26 +90,54 @@ public class RequestWether {
                 Log.i("Request exception", "Exception: " + e.getMessage()); // Oops
             }
 
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-
             final ArrayList<HashMap<String, Object>> myBooks = new ArrayList<HashMap<String, Object>>();
 
-           // TextView textViewAir = (TextView) rootView.findViewById(R.id.textView23);
-          //  TextView textViewWater = (TextView) rootView.findViewById(R.id.textView24);
+            //  TextView textViewAir = (TextView) rootView.findViewById(R.id.textView23);
+            //   TextView textViewWater = (TextView) rootView.findViewById(R.id.textView24);
 
 
             try {
 
-                System.out.println(line);
+                // создали читателя json объектов и отдали ему строку - result
+                JSONObject json = new JSONObject(line);
+                // дальше находим вход в наш json им является ключевое слово
+                // data
+                JSONArray urls = json.getJSONArray("data");
+                // проходим циклом по всем нашим параметрам
+                for (int i = 0; i < urls.length(); i++) {
+                    HashMap<String, Object> hm;
+                    hm = new HashMap<String, Object>();
+
+                    // читаем что в себе хранит параметр date
+                    hm.put("temperature", urls.getJSONObject(i).getString("temperature"));
+
+                    // читаем что в себе хранит параметр title
+                    hm.put("water_temp", urls.getJSONObject(i).getString("water_temperature"));
+
+                    myBooks.add(hm);
+
+                }
+
+                // дальше добавляем полученные параметры в наш текствью
+
+                //  textViewAir.setText("Воздух " + myBooks.get(0).get("temperature").toString());
+                //  textViewWater.setText("Вода " + myBooks.get(0).get("water_temp").toString());
+
+
+                // Toast.makeText(getActivity(),  myBooks.get(0).get("temperature").toString() , Toast.LENGTH_SHORT).show();
+             //   System.out.println(myBooks.get(0).get("temperature").toString());
 
 
             } catch (Exception e) {
                 Log.e("log_tag", "Error parsing data " + e.toString());
             }
+
+
+            return myBooks;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<HashMap<String, Object>> result) {
 
 
             super.onPostExecute(result);

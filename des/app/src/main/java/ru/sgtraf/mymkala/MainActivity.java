@@ -40,6 +40,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -50,6 +51,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private ArrayList<HashMap<String, Object>> result;
 
     private DrawerLayout mDrawerLayout;
 
@@ -99,10 +101,22 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
         try {
-           new RequestWether().test();
+         result =  new RequestWether().test();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        System.out.println(result.get(0).get("temperature").toString());
+
+
+        SupportMapFragment mapFragment1 = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map1);
+
+//  TextView textViewAir = (TextView) rootView.findViewById(R.id.textView23);
+        //   TextView textViewWater = (TextView) rootView.findViewById(R.id.textView24);
+        //  textViewAir.setText("Воздух " + myBooks.get(0).get("temperature").toString());
+        //  textViewWater.setText("Вода " + myBooks.get(0).get("water_temp").toString());
+
     }
 
     @Override
