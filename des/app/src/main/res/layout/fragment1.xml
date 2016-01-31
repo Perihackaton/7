@@ -47,13 +47,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Ночной вид на пр. Р.Гамзатова"
                     android:id="@+id/textView5"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
                     android:textSize="20sp"
                     android:textColor="#ffffff"
-                    android:alpha="1" />
+                    android:alpha="1"
+                    android:text="Ночной вид на пр. Р.Гамзатова" />
             </LinearLayout>
 
         </RelativeLayout>

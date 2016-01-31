@@ -30,6 +30,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -58,7 +60,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+            setContentView(R.layout.activity_main);
         // Adding Toolbar to Main screen
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -107,10 +110,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         System.out.println(result.get(0).get("temperature").toString());
+      //  Fragment Fragment1 = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map1);
+        //   TextView Text =    ((TextView)getView().findViewById(R.id.textView5));
 
+//Text.setText("ggg");
 
-        SupportMapFragment mapFragment1 = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map1);
 
 //  TextView textViewAir = (TextView) rootView.findViewById(R.id.textView23);
         //   TextView textViewWater = (TextView) rootView.findViewById(R.id.textView24);
@@ -130,6 +134,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
        // mMap.getUiSettings().setZoomControlsEnabled(true);
      //   mMap.setMyLocationEnabled(true);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(11.2f));
+
+
     }
 
 
