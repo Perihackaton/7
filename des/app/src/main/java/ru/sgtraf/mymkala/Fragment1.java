@@ -19,16 +19,18 @@ public class Fragment1 extends Fragment {
     private ArrayList<HashMap<String, Object>> result;
     View v;
     String temp;
+    String temp2;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View v = inflater.inflate(R.layout.fragment1, container, false);
 // искать view до создания
-        TextView text = (TextView) v.findViewById(R.id.textView5);
+        TextView text = (TextView) v.findViewById(R.id.textView51);
+        TextView text1 = (TextView) v.findViewById(R.id.textView53);
 
 
         text.setText(temp);
-
+        text1.setText(temp2);
 
         return v;
 
@@ -45,6 +47,8 @@ public class Fragment1 extends Fragment {
         }
 
         temp = result.get(0).get("temperature").toString();
+        temp2 = result.get(0).get("water_temp").toString();
+
         System.out.println(result.get(0).get("temperature").toString());
 
 
