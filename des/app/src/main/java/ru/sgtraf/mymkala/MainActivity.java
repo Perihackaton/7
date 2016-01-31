@@ -105,9 +105,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng sydney = new LatLng(42.95, 47.5);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Махачкала"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        mMap.getUiSettings().setZoomControlsEnabled(true);
-        mMap.setMyLocationEnabled(true);
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(13.0f));
+       // mMap.getUiSettings().setZoomControlsEnabled(true);
+     //   mMap.setMyLocationEnabled(true);
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(11.2f));
     }
 
 
