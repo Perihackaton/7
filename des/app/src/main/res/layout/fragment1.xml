@@ -23,20 +23,35 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="250dp">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/imageView1"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/mus1dagmuseumizissk"
-        android:layout_weight="1" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/imageView2"
-            android:background="@drawable/mus2drujbinarodovrossii"
-            android:layout_weight="1" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView1"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/mus1dagmuseumizissk"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView2"
+                android:background="@drawable/mus2drujbinarodovrossii"
+                android:layout_weight="1"
+                android:layout_toRightOf="@+id/imageView1" />
+
+            <View
+                android:layout_width="230dp"
+                android:background="@drawable/rectangle_rounded_some"
+                android:layout_height="40dp" />
+        </RelativeLayout>
+
+
+
 
     </LinearLayout>
 
