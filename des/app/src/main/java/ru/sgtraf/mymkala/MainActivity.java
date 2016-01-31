@@ -129,8 +129,29 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(42.95, 47.5);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Махачкала"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng sydney1 = new LatLng(42.9847, 47.4908);
+        LatLng sydney2 = new LatLng(42.9731, 47.505);
+        LatLng sydney3 = new LatLng(42.9808, 47.4705);
+        LatLng sydney4 = new LatLng(42.9842, 47.4965);
+        LatLng sydney5 = new LatLng(42.9850, 47.4501);
+
+
+
+
+
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker one"));
+
+        mMap.addMarker(new MarkerOptions().position(sydney1).title("Marker two"));
+
+        mMap.addMarker(new MarkerOptions().position(sydney2).title("Marker three"));
+
+        mMap.addMarker(new MarkerOptions().position(sydney3).title("Marker four"));
+
+        mMap.addMarker(new MarkerOptions().position(sydney4).title("Marker five"));
+        mMap.addMarker(new MarkerOptions().position(sydney5).title("Marker six"));
+
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney3));
        // mMap.getUiSettings().setZoomControlsEnabled(true);
      //   mMap.setMyLocationEnabled(true);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(11.2f));
